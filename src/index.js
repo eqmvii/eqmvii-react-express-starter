@@ -2,7 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { registerServiceWorker, unregister }from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+
+// old code that caused caching issue
+// Meant updates took n+1 refreshes, which seems... insane? 
+// registerServiceWorker();
+
+// do this instead:
+unregister();
